@@ -1,0 +1,114 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2022-06-27T11:30:02.816Z",
+    "__export_source": "insomnia.desktop.app:v2022.4.1",
+    "resources": [
+        {
+            "_id": "req_7e8f6ae07f004b21ba4e99bc00523bab",
+            "parentId": "fld_d244a6e0a7c54404bc18c6b846fe4bb5",
+            "modified": 1656329225628,
+            "created": 1656290818846,
+            "url": "http://{{HOST}}/filteredimage",
+            "name": "http://localhost:8082/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [
+                {
+                    "id": "pair_3bc881dc36614450b31cf28462f74912",
+                    "name": "image_url",
+                    "value": "https://images.unsplash.com/photo-1656303878976-2309483db5c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                    "description": "",
+                    "disabled": false
+                },
+                {
+                    "id": "pair_657d4b2d3bde44e384a904c3e651f3ec",
+                    "name": "image_url",
+                    "value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+                    "description": "",
+                    "disabled": true
+                }
+            ],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1656290818846,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_d244a6e0a7c54404bc18c6b846fe4bb5",
+            "parentId": "wrk_08aa62e4c77c4336813b47bd9ce545ba",
+            "modified": 1656329251005,
+            "created": 1656290818864,
+            "name": "cloud-cdnd-c2-final",
+            "description": "",
+            "environment": {
+                "HOST": "udagram-image-filter-appv1-dev.us-east-1.elasticbeanstalk.com"
+            },
+            "environmentPropertyOrder": {
+                "&": [
+                    "HOST"
+                ]
+            },
+            "metaSortKey": -1656290818864,
+            "_type": "request_group"
+        },
+        {
+            "_id": "wrk_08aa62e4c77c4336813b47bd9ce545ba",
+            "parentId": null,
+            "modified": 1656290818869,
+            "created": 1655544998843,
+            "name": "New Document",
+            "description": "",
+            "scope": "design",
+            "_type": "workspace"
+        },
+        {
+            "_id": "env_d5dbce3ebe0c4a1f2291c10eb6f95cd4436ae199",
+            "parentId": "wrk_08aa62e4c77c4336813b47bd9ce545ba",
+            "modified": 1655544998910,
+            "created": 1655544998910,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1655544998910,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_d5dbce3ebe0c4a1f2291c10eb6f95cd4436ae199",
+            "parentId": "wrk_08aa62e4c77c4336813b47bd9ce545ba",
+            "modified": 1655544998923,
+            "created": 1655544998923,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_9a4c64b22ac8440f8232c384e5e872d5",
+            "parentId": "wrk_08aa62e4c77c4336813b47bd9ce545ba",
+            "modified": 1656329202826,
+            "created": 1655544998892,
+            "fileName": "New Document",
+            "contents": "",
+            "contentType": "yaml",
+            "_type": "api_spec"
+        },
+        {
+            "_id": "uts_a322006dd2174d67bb6ba7da6dfbe0b5",
+            "parentId": "wrk_08aa62e4c77c4336813b47bd9ce545ba",
+            "modified": 1655544998938,
+            "created": 1655544998938,
+            "name": "Example Test Suite",
+            "_type": "unit_test_suite"
+        }
+    ]
+}
