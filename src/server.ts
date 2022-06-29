@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import { filterImageFromURL, deleteLocalFiles } from './util/util';
+import { stringify } from 'querystring';
 
 (async () => {
 
@@ -30,9 +31,12 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
   /**************************************************************************** */
 
   //! END @TODO1
-
+  app.get("/", async (req, res) => {
+    res.send("try GET /filteredimage?image_url={{https://img.freepik.com/free-photo/ultra-tech-close-up-young-woman-brown-neon-light-beautiful-female-model-with-fashionable-trendy-eyewear_155003-42079.jpg}}")
+  });
+  
   app.get("/filteredimage", async (req: Request, res: Response, next) => {
-    const image_url: string = req.query.image_url;
+    let image_url = req.query.image_url;
 
     if (!image_url) {
       return res.status(422).send("No image url query found.")
