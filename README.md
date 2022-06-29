@@ -29,8 +29,24 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
 ### Deploying your system
 
+#### Setting up aws eb cli environment
+      C:\Windows\System32> pip install awsebcli --upgrade --user
+      
+#### Configure Group in aws cli
+     C:\Windows\System32\Deploying-Image-Filter-App-in-Aws-eb>aws configure --profile deploy-image-filter-app
+     
 Follow the process described in the course to `eb init` a new application and `eb create` a new environment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
 
+#### Run eb init 
+    eb init --profile deploy-image-filter-app 
+          
+          IF AN ERROR ARISES RUN
+    pip install awsebcli --upgrade --ignore-installed six
+#### Create environment
+    eb create
+#### direct deploy
+    eb deploy
+    
 ## Stand Out (Optional)
 
 ### Refactor the course RESTapi
