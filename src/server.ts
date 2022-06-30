@@ -2,7 +2,6 @@ import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import { filterImageFromURL, deleteLocalFiles } from './util/util';
 import { stringify } from 'querystring';
-
 (async () => {
 
   // Init the Express application
@@ -31,32 +30,29 @@ import { stringify } from 'querystring';
   /**************************************************************************** */
 
   //! END @TODO1
-  app.get("/", async (req, res) => {
-    res.send("try GET /filteredimage?image_url={{https://img.freepik.com/free-photo/ultra-tech-close-up-young-woman-brown-neon-light-beautiful-female-model-with-fashionable-trendy-eyewear_155003-42079.jpg}}")
-  });
-  
-  app.get("/filteredimage", async (req: Request, res: Response, next) => {
-    let image_url = req.query.image_url;
-
-    if (!image_url) {
-      return res.status(422).send("No image url query found.")
-    }
-
-    try {
-      const filteredpath: string = await filterImageFromURL(image_url);
-      res.status(200).sendFile(filteredpath);
-      res.on("finish", () => deleteLocalFiles([filteredpath]));
-    } catch (error) {
-      console.log(error)
-      next(error)
-    }
-  })
 
   // Root Endpoint
   // Displays a simple message to the user
   app.get("/", async (req, res) => {
     res.send("try GET /filteredimage?image_url={{}}")
   });
+  
+  app.get( "/filteredimage", async (req: Request, res: Response) => {
+    let {image_url} = req.query;
+    if (!image_url){
+      res.status(400).send('Error : Empty image url submitted');
+    } else {
+      await filterImageFromURL(image_url).then( function (img_filtered_path){
+        res.sendFile(img_filtered_path, () => {       
+          deleteLocalFiles([img_filtered_path]);       
+        });   
+      }).catch(function(err){
+        res.status(400).send('The image can not be filtered - check the link submitted ');
+      });  
+
+    }
+  });
+
 
 
   // Start the Server
